@@ -2,7 +2,7 @@ import express from "express";
 import diveSitesRouter from './routers/diveSitesRouter.js'
 //setup del server
 const app = express();
-const port = process.env.PORT || 3306;
+const port = process.env.PORT || 3001;
 
 //middlewares
 app.use(express.json());
