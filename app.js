@@ -7,7 +7,6 @@ const port = process.env.PORT || 3306;
 //middlewares
 app.use(express.json());
 
-
 //routes
 app.get('/', (req,res)=> {
     res.send('Homepage')
