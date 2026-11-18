@@ -6,3 +6,37 @@ generator client {
 datasource db {
   provider = "mysql"
 }
+
+model DiveSite {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  location    String
+  maxDepth    Int     @db.TinyInt
+  description String? @db.Text
+  isNightDive Boolean @default(false)
+
+  //relazione con categoria
+  categoryId Int
+  category   Category? @relation(fields: [categoryId], references: [id]) // per ora opzionale 
+
+  //relazione con certificazione
+  certificationLevelId Int
+  certificationLevel   CertificationLevel? @relation(fields: [certificationLevelId], references: [id]) // per ora opzionale 
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// un diveSite può avere una sola categoria, una categoria può avere più diveSite
+model Category {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique // es. "Relitto", "Grotta", "Scogliera", "Fondale sabbioso"
+  diveSites DiveSite[]
+}
+
+model CertificationLevel {
+  id        Int        @id @default(autoincrement())
+  name      String     @unique // es. "Open Water", "Advanced Open Water", "Cavern/Wreck Diver"
+  maxDepth  Int // es. 18 per Open Water, 30 per Advanced
+  diveSites DiveSite[]
+}
