@@ -1,5 +1,3 @@
-import { faker } from "@faker-js/faker";
-
 const padiCertifications = [
   { name: "Scuba Diver", maxDepth: 12 },
   { name: "Open Water Diver", maxDepth: 18 },
@@ -28,28 +26,4 @@ const diveCategories = [
   { name: "Lagoon" }       // Laguna / Acque basse
 ];
 
-// Estrarre  i nomi delle categorie ("Reef", "Wreck", ecc.)
-const categoryNames = diveCategories.map((cat) => cat.name);
-
-// Generare 20 nomi unici usando le categorie create sopra
-const uniqueNames = faker.helpers.uniqueArray(
-  () => `${faker.word.adjective()} ${faker.helpers.arrayElement(categoryNames)}`,
-  20
-);
-
-// creare 20 diveSites usando nomi unici creati sopra
-const fakeDiveSites = uniqueNames.map((siteName) => ({
-  name: siteName,
-  location: `${faker.location.city()}, ${faker.location.country()}`,
-  maxDepth: faker.number.int({ min: 8, max: 40 }),
-  description: faker.lorem.paragraph(),
-  isNightDive: faker.datatype.boolean({ probability: 0.3 }),
-  mapUrl: faker.image.urlPicsumPhotos({ width: 800, height: 600 }),
-  marineLife: faker.helpers
-    .multiple(() => faker.animal.fish(), { count: { min: 3, max: 6 } })
-    .join(', '),
-}));
-
-// console.log(fakeDiveSites)
-
-export {fakeDiveSites, diveCategories, padiCertifications};
+export {diveCategories, padiCertifications};
