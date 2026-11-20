@@ -27,7 +27,7 @@ L'idea è permettere di esplorare e gestire diversi punti d'immersione classific
 
 ## Stato del progetto e Roadmap
 
-- [ ] **Step 1: Setup Backend & Database**
+- [✓ ] **Step 1: Setup Backend & Database**
   - Inizializzazione progetto Node con `pnpm` e installazione Express
   - Struttura base del Router con rotte CRUD (attualmente con risposte testuali di test)
   - Configurazione di Prisma ORM con MySQL

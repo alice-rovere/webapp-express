@@ -14,6 +14,8 @@ model DiveSite {
   maxDepth    Int     @db.TinyInt
   description String? @db.Text
   isNightDive Boolean @default(false)
+  mapUrl      String?
+  marineLife  String? @db.Text
 
   //relazione con categoria
   categoryId Int
