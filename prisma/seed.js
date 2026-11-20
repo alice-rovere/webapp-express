@@ -1,7 +1,8 @@
-import prisma from '../libs/prismaClient.js'
+import prisma from '../libs/prismaClient.js';
 
 async function main() {
   console.log('Seeding started');
+
 }
  
 main()
